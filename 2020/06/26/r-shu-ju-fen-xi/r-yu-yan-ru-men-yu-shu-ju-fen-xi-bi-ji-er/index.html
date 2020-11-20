@@ -1,0 +1,1964 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="R语言与数据分析（二）, 幽狼君的博客">
+    <meta name="description" content="无论处境，泰然处之">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>R语言与数据分析（二） | 幽狼君的博客</title>
+    <link rel="icon" type="image/png" href="/auther2.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/auther2.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">幽狼君的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/auther2.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">幽狼君的博客</div>
+        <div class="logo-desc">
+            
+            无论处境，泰然处之
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">R语言与数据分析（二）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">数据分析</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                数据分析
+                            </a>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/R%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                R语言数据分析
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-06-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-15
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    37 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote class="blockquote-center">
+喜欢一件事就去争取吧。
+</blockquote>
+<a id="more"></a>
+
+<h2 id="34-数据转换"><a href="#34-数据转换" class="headerlink" title="34-数据转换"></a>34-数据转换</h2><p>数据的收集和存储已经会了,这里开始数据的转换,转换后就可以分析数据了.</p>
+<p>前面介绍是向量,矩阵,数组,数据框,列表,因子,时间序列,等的增删改查</p>
+<pre><code class="r">&gt; cars32 = read.csv(&quot;mtcars.csv&quot;)
+&gt; is.data.frame(cars32)
+[1] TRUE  ## 表示是一个矩阵
+&gt; is.data.frame(state.x77)
+[1] FALSE</code></pre>
+<p>转换为数据框</p>
+<pre><code class="r">&gt; dstate.x77 = as.data.frame(state.x77)</code></pre>
+<p>转换为矩阵,变为字符串类型的矩阵</p>
+<pre><code class="r">&gt; as.matrix(data.frame(state.region,state.x77))</code></pre>
+<p>methods查看内容</p>
+<pre><code class="r">&gt; methods(is)
+&gt; methods(as)</code></pre>
+<h4 id="向量是R种基本的数据类型-加上一个维度就是数组或者矩阵"><a href="#向量是R种基本的数据类型-加上一个维度就是数组或者矩阵" class="headerlink" title="向量是R种基本的数据类型,加上一个维度就是数组或者矩阵"></a>向量是R种基本的数据类型,加上一个维度就是数组或者矩阵</h4><pre><code class="r">## &gt; is.data.frame(state.x77)
+[1] FALSE
+&gt; x = state.abb
+&gt; dim(x) = c(5,10)
+
+## 向量变因子
+&gt; x = state.babb
+&gt; as.factor(x)
+
+## 变为列表
+&gt; as.list(x)</code></pre>
+<p>添加一个数据框</p>
+<pre><code class="r">&gt; state = data.frame(x,state.region,state.x77)</code></pre>
+<h2 id="35-数据转换-二"><a href="#35-数据转换-二" class="headerlink" title="35-数据转换(二)"></a>35-数据转换(二)</h2><p>讲一个取子集的操作</p>
+<pre><code class="r">## 这是一个数据框
+&gt; who = read.csv(&quot;WHO.csv&quot;,header = T)
+&gt; who1 = who[c(1:50),c(1:10)]
+&gt; who2 = who[c(1,3,5,8),c(2,14,16)]</code></pre>
+<p>取出CountryID 在50到100的国家,似乎不知道怎么去理解</p>
+<pre><code class="r">&gt; who4 = who[which,(who$CountryID &gt; 50 &amp; who$CountryID &lt;=100)]
+&gt; who4 = subset(who,who$CountryID &gt; 50 &amp; who$CountryID &lt;=100)</code></pre>
+<p>sample抽样,机器学习中抽取两份样本,一份用来建模,一份用来验证模型的有效性</p>
+<pre><code class="r">&gt; ?sample
+## 例子,第一个参数为是选择那个向量,第二个是要抽取的个数,replace 表示是否放回式的抽样.
+&gt; x = 1:100
+&gt; sample(x,30,replace = T)
+ [1] 39 23 11 26 50 86 86 71 26  6 10 93 81 73 74 87 98
+[18]  6 17 87 10 69 51 24 22 70 33 68 97 82
+&gt; sort(sample(x,30,replace = T))
+ [1]  8 19 23 23 28 31 32 40 40 42 50 50 50 51 52 55 58
+[18] 60 63 70 73 77 78 83 83 84 85 89 93 96</code></pre>
+<p>sample对数据框进行抽样,取子集</p>
+<pre><code class="r">&gt; who[sample(who$CountryID,30,replace = F),]</code></pre>
+<p>删除固定行的数据</p>
+<pre><code class="r">## 注意逗号的位置
+&gt; mtcars[-1:-5,]
+
+## 清空这一行的数据
+&gt; mtcars$mpg = NULL </code></pre>
+<p>如果遇到几个数据表进行汇总,这里要用到数据框的合并,可以使用cbind和rbind函数,cbind添加一列,rbind添加一行.</p>
+<p>cbind合并列</p>
+<pre><code class="r">## USArrests是一个数据集,state.division是一个因子
+&gt; cbind(USArrests,state.division)</code></pre>
+<p>rbind合并行,这个比较麻烦,需要所有的列有源数据集有相同的列名</p>
+<pre><code class="r">## 取出前20行和尾20行合并
+&gt; data1 = head(USArrests,20)
+&gt; data2 = head(USArrests,20)
+&gt; b = rbind(data1,data2)</code></pre>
+<p>cbind和rbind也可以用于矩阵</p>
+<p>回顾rownames可以取出行名</p>
+<p>判断向量和数据框中哪些是重复值</p>
+<pre><code class="r">&gt; duplicated(who)</code></pre>
+<p>用unique(data4)可以一步取出重复项</p>
+<h2 id="36-数据转换-三"><a href="#36-数据转换-三" class="headerlink" title="36-数据转换(三)"></a>36-数据转换(三)</h2><p>R中行列的调换,excel中可以复制后选择性粘贴.R中可以用<code>t()</code>函数实现转换</p>
+<pre><code class="r">&gt; sractm = t(mtcars)</code></pre>
+<p>单独一行的反转,生物序列中很常见,主要是反向互补,可以使用rev函,reverse的意思 </p>
+<pre><code class="r">&gt; letters
+ [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot;
+[13] &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot;
+[25] &quot;y&quot; &quot;z&quot;
+&gt; rev(letters)
+ [1] &quot;z&quot; &quot;y&quot; &quot;x&quot; &quot;w&quot; &quot;v&quot; &quot;u&quot; &quot;t&quot; &quot;s&quot; &quot;r&quot; &quot;q&quot; &quot;p&quot; &quot;o&quot;
+[13] &quot;n&quot; &quot;m&quot; &quot;l&quot; &quot;k&quot; &quot;j&quot; &quot;i&quot; &quot;h&quot; &quot;g&quot; &quot;f&quot; &quot;e&quot; &quot;d&quot; &quot;c&quot;
+[25] &quot;b&quot; &quot;a&quot;</code></pre>
+<p>数据框中的数据反转,思路就是,提取行名,反转,以反转后的行名为索引</p>
+<pre><code class="r">&gt; rowname(women)
+&gt; rev(rowname(women))
+&gt; women[rev(rowname(women))]</code></pre>
+<p>如何修改数据框中的值，可以使用transform()</p>
+<pre><code class="r">## 比如
+&gt; transform(women,height=height*2.54)</code></pre>
+<p>排序</p>
+<p>sort可以对向量进行排序,可以排序数字,字母,</p>
+<p>sort中也可以设置参数decreasing = T进行从大小排序</p>
+<pre><code class="r">&gt; sort(rivers,decreasing = T)</code></pre>
+<p>order排序返回的是排序后的索引值,在数据框中是比较常用的.返回索引值后可以拿来数据框的排序</p>
+<pre><code class="r">## 如果换成sort就不行了
+&gt; mtcars[order(mtcars$mpg),]
+
+## &quot;-&quot;反向排序,也可以加参数decreasing = T
+&gt; mtcars[order(-mtcars$mpg),]
+&gt; mtcars[order(mtcars$mpg,decreasing = T),]</code></pre>
+<p>其次还有rank 函数,</p>
+<h2 id="37-数据转换-四"><a href="#37-数据转换-四" class="headerlink" title="37-数据转换(四)"></a>37-数据转换(四)</h2><p>如何对数据框进行数学计算</p>
+<!--<img src="https://s1.ax1x.com/2020/06/06/t6o5dS.png" alt="t6o5dS.png" border="0" />-->
+<p><img src="https://s1.ax1x.com/2020/06/06/t6o5dS.png" alt="t6o5dS.png"></p>
+<p>统计</p>
+<pre><code class="r">worldphones = as.data.frame(WorldPhones)  ## 转换成数据框
+rs = rowSums(worldphones)  ## 对行进行求和
+cm = colMeans(worldphones)  ## 对列求平均
+total = cbind(worldphones,Total=rs)  ## 添加一列
+rbind(total,cm)  ## 添加一行</code></pre>
+<p>apply函数,使用与数据框和矩阵,可以有多个功能参数</p>
+<p>主要四两个参数,margin,fun;margin = 1表示对行进行求和,2表示对列进行求和.fun表示功能,要进行的操作</p>
+<pre><code class="r">&gt; ?apply
+## 对行求和
+&gt; apply(WorldPhones,MARGIN = 1,FUN = sum)
+## 对列求平均值
+&gt; apply(WorldPhones,MARGIN = 2,FUN = mean)</code></pre>
+<p>lapply 表示list apply ,适用于list列表</p>
+<pre><code class="r">&gt; lapply(state.center, length)
+$x
+[1] 50
+
+$y
+[1] 50</code></pre>
+<p>sapply</p>
+<pre><code class="r">&gt; sapply(state.center, length)
+ x  y 
+50 50 </code></pre>
+<p>tapply 用于处理因子数据,根据因子分组,然后根据因子分组进行处理</p>
+<p>第一个参数问数据集,第三个参数是要使用的函数</p>
+<p>没咋懂!!!</p>
+<pre><code class="r">&gt; tapply(state.name,state.division,FUN=length)
+       New England    Middle Atlantic 
+                 6                  3 
+    South Atlantic East South Central 
+                 8                  4 
+West South Central East North Central 
+                 4                  5 
+West North Central           Mountain 
+                 7                  8 
+           Pacific 
+                 5 </code></pre>
+<h3 id="R中数据的中心化与标准化处理"><a href="#R中数据的中心化与标准化处理" class="headerlink" title="R中数据的中心化与标准化处理"></a>R中数据的中心化与标准化处理</h3><p>数据的中心化,是指数据集中的各项数据减去数据集的均值</p>
+<p>数据的标准化,是指在中心化后在除以数据集的标准差,即数据集中的各项数据减去数据集的均值再除以数据集的标准差.</p>
+<p>R中实现中心化和标准化可以用scale函数,有两个参数,center和scale</p>
+<p>比如state.x77这个数据集</p>
+<pre><code class="r">&gt; x = scale(state.x77,center = T,scale = T)
+&gt; heatmap(x)</code></pre>
+<h2 id="38-数据格式的转换-reshape2包"><a href="#38-数据格式的转换-reshape2包" class="headerlink" title="38-数据格式的转换(reshape2包)"></a>38-数据格式的转换(reshape2包)</h2><p>大概的过程相当于钢铁的制造过程,先把铁融化,然后在做成想要的形状.在数据的过程中,称为柔数据,很像是excel中的数据透视表.</p>
+<pre><code class="r">## 这里是一组空气质量的数据
+&gt; names(airquality) = tolower(names(airquality))  ## 把首字母小写
+&gt; melt(airquality)  ## 融合数据
+&gt; aql = melt(airquality)  ## 融合后数据变为三列
+
+&gt; aql = melt(airquality,id.vars = c(&quot;month&quot;,&quot;day&quot;))  ## 将月份和日期作为id变量.
+
+&gt; aqw = dcast(aql,month+day ~variable)  ## 重铸数据,与variable相关联
+&gt; aqw = dcast(aql,month+day ~variable,fun.aggregate = mean,na.rm=TRUE)</code></pre>
+<p>没怎么听懂.  可以在右下的框框中找到reshape2的帮助包,找到acast和dcast把其中的案例都运行一边,</p>
+<p>~ 表示有关联有关系 </p>
+<h2 id="39-数据格式的转换-tidyr包"><a href="#39-数据格式的转换-tidyr包" class="headerlink" title="39-数据格式的转换(tidyr包)"></a>39-数据格式的转换(tidyr包)</h2><p>简洁数据中</p>
+<ol>
+<li>每一列代表一个变量</li>
+<li>每一行代表一个观测</li>
+<li>每一个观测的值在表中的一个单元格中 </li>
+</ol>
+<p>tidyr包中有四个重要的函数</p>
+<ul>
+<li>gather 主要是将宽数据转换成长数据,类似于reshape2包中的melt函数   </li>
+<li>spread 将长数据转换成宽数据,类似于reshape中的cast函数</li>
+<li>unite 是将多列合并为一列</li>
+<li>separate 是将一列分成多列</li>
+</ul>
+<p>mtcars数据集为例,就是一个标准的tidydata数据集</p>
+<pre><code class="r">&gt; tdata = mtcars[1:10,1:3]
+&gt; tdata
+                   mpg cyl  disp
+Mazda RX4         21.0   6 160.0
+Mazda RX4 Wag     21.0   6 160.0
+Datsun 710        22.8   4 108.0
+Hornet 4 Drive    21.4   6 258.0
+Hornet Sportabout 18.7   8 360.0
+Valiant           18.1   6 225.0
+Duster 360        14.3   8 360.0
+Merc 240D         24.4   4 146.7
+Merc 230          22.8   4 140.8
+Merc 280          19.2   6 167.6
+
+## 以第一列的数据添加到数据集中
+&gt; tdata = data.frame(names=rownames(tdata),tdata)
+&gt; tdata
+                              names  mpg cyl  disp
+Mazda RX4                 Mazda RX4 21.0   6 160.0
+Mazda RX4 Wag         Mazda RX4 Wag 21.0   6 160.0
+Datsun 710               Datsun 710 22.8   4 108.0
+Hornet 4 Drive       Hornet 4 Drive 21.4   6 258.0
+Hornet Sportabout Hornet Sportabout 18.7   8 360.0
+Valiant                     Valiant 18.1   6 225.0
+Duster 360               Duster 360 14.3   8 360.0
+Merc 240D                 Merc 240D 24.4   4 146.7
+Merc 230                   Merc 230 22.8   4 140.8
+Merc 280                   Merc 280 19.2   6 167.6</code></pre>
+<p>gather函数,可以调整行列</p>
+<pre><code class="r">
+## 对dyl,disp,mpg进行处理,如下
+&gt; gather(tdata,key = &quot;Key&quot;,value = &quot;Value&quot;,cyl,disp,mpg)
+               names  Key Value
+1          Mazda RX4  cyl   6.0
+2      Mazda RX4 Wag  cyl   6.0
+3         Datsun 710  cyl   4.0
+4     Hornet 4 Drive  cyl   6.0
+5  Hornet Sportabout  cyl   8.0
+6            Valiant  cyl   6.0
+7         Duster 360  cyl   8.0
+8          Merc 240D  cyl   4.0
+9           Merc 230  cyl   4.0
+10          Merc 280  cyl   6.0
+11         Mazda RX4 disp 160.0
+12     Mazda RX4 Wag disp 160.0
+13        Datsun 710 disp 108.0
+14    Hornet 4 Drive disp 258.0
+15 Hornet Sportabout disp 360.0
+16           Valiant disp 225.0
+17        Duster 360 disp 360.0
+18         Merc 240D disp 146.7
+19          Merc 230 disp 140.8
+20          Merc 280 disp 167.6
+21         Mazda RX4  mpg  21.0
+22     Mazda RX4 Wag  mpg  21.0
+23        Datsun 710  mpg  22.8
+24    Hornet 4 Drive  mpg  21.4
+25 Hornet Sportabout  mpg  18.7
+26           Valiant  mpg  18.1
+27        Duster 360  mpg  14.3
+28         Merc 240D  mpg  24.4
+29          Merc 230  mpg  22.8
+30          Merc 280  mpg  19.2
+
+## 可用&quot;-&quot;号,将disp单独放入一列中,
+&gt; gdata = gather(tdata,key = &quot;Key&quot;,value = &quot;Value&quot;,cyl,-disp,mpg)
+&gt; gdata
+               names  disp Key Value
+1          Mazda RX4 160.0 cyl   6.0
+2      Mazda RX4 Wag 160.0 cyl   6.0
+3         Datsun 710 108.0 cyl   4.0
+4     Hornet 4 Drive 258.0 cyl   6.0
+5  Hornet Sportabout 360.0 cyl   8.0
+6            Valiant 225.0 cyl   6.0
+7         Duster 360 360.0 cyl   8.0
+8          Merc 240D 146.7 cyl   4.0
+9           Merc 230 140.8 cyl   4.0
+10          Merc 280 167.6 cyl   6.0
+11         Mazda RX4 160.0 mpg  21.0
+12     Mazda RX4 Wag 160.0 mpg  21.0
+13        Datsun 710 108.0 mpg  22.8
+14    Hornet 4 Drive 258.0 mpg  21.4
+15 Hornet Sportabout 360.0 mpg  18.7
+16           Valiant 225.0 mpg  18.1
+17        Duster 360 360.0 mpg  14.3
+18         Merc 240D 146.7 mpg  24.4
+19          Merc 230 140.8 mpg  22.8
+20          Merc 280 167.6 mpg  19.2
+
+## 也可以用列号
+gather(tdata,key = &quot;Key&quot;,value = &quot;Value&quot;,2:4)</code></pre>
+<p>spread 函数,基本和gather相反</p>
+<pre><code class="r">&gt; spdata = spread(gdata,key = &quot;Key&quot;,value = &quot;Value&quot;)
+&gt; spdata
+               names cyl  disp  mpg
+1         Datsun 710   4 108.0 22.8
+2         Duster 360   8 360.0 14.3
+3     Hornet 4 Drive   6 258.0 21.4
+4  Hornet Sportabout   8 360.0 18.7
+5          Mazda RX4   6 160.0 21.0
+6      Mazda RX4 Wag   6 160.0 21.0
+7           Merc 230   4 140.8 22.8
+8          Merc 240D   4 146.7 24.4
+9           Merc 280   6 167.6 19.2
+10           Valiant   6 225.0 18.1</code></pre>
+<p>spread默认识别”.”分割符,sep可以指定分隔符如:</p>
+<pre><code class="r">&gt; df = data.frame(x = c(NA,&quot;a.b&quot;,&quot;a.c&quot;,&quot;b.c&quot;)
+&gt; df
+     x
+1 &lt;NA&gt;
+2  a.b
+3  a.c
+4  b.c
+&gt; separate(df,col = x,into = c(&quot;A&quot;,&quot;B&quot;),sep = &quot;-&quot;)
+     A    B
+1 &lt;NA&gt; &lt;NA&gt;
+2    a    b
+3    a    c
+4    b    c</code></pre>
+<p>unite是一个相反的操作</p>
+<pre><code class="r">&gt; unite(x,col = &quot;CD&quot;,A,B,sep = &quot;-&quot;)
+     CD
+1 NA-NA
+2   a-b
+3   a-c
+4   b-c</code></pre>
+<h2 id="40-数据格式的转换-dplyr包"><a href="#40-数据格式的转换-dplyr包" class="headerlink" title="40-数据格式的转换(dplyr包)"></a>40-数据格式的转换(dplyr包)</h2><p>这是一个非常强大的包</p>
+<pre><code class="r">&gt; ls(&quot;package:dplyr&quot;)  ## 可以列出包的所有的函数</code></pre>
+<p>dplyr::filer功能,根据给定条件,对数据进行过滤,例如</p>
+<pre><code class="r">## dplyr::是调用的这个包中的函数,因为函数太多所以可以防止出现奇异
+&gt; dplyr::filter(iris,Sepal.Length&gt;7)  ## 过滤出花萼长度大于7的
+   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+1           7.1         3.0          5.9         2.1 virginica
+2           7.6         3.0          6.6         2.1 virginica
+3           7.3         2.9          6.3         1.8 virginica
+4           7.2         3.6          6.1         2.5 virginica
+5           7.7         3.8          6.7         2.2 virginica
+6           7.7         2.6          6.9         2.3 virginica
+7           7.7         2.8          6.7         2.0 virginica
+8           7.2         3.2          6.0         1.8 virginica
+9           7.2         3.0          5.8         1.6 virginica
+10          7.4         2.8          6.1         1.9 virginica
+11          7.9         3.8          6.4         2.0 virginica
+12          7.7         3.0          6.1         2.3 virginica</code></pre>
+<p>dplyr::distinct用于去除重复行,相当于unic</p>
+<pre><code class="r">&gt; dplyr::distinct(rbind(iris[1:10,],iris[1:15,]))
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1           5.1         3.5          1.4         0.2  setosa
+2           4.9         3.0          1.4         0.2  setosa
+3           4.7         3.2          1.3         0.2  setosa
+4           4.6         3.1          1.5         0.2  setosa
+5           5.0         3.6          1.4         0.2  setosa
+6           5.4         3.9          1.7         0.4  setosa
+7           4.6         3.4          1.4         0.3  setosa
+8           5.0         3.4          1.5         0.2  setosa
+9           4.4         2.9          1.4         0.2  setosa
+10          4.9         3.1          1.5         0.1  setosa
+11          5.4         3.7          1.5         0.2  setosa
+12          4.8         3.4          1.6         0.2  setosa
+13          4.8         3.0          1.4         0.1  setosa
+14          4.3         3.0          1.1         0.1  setosa
+15          5.8         4.0          1.2         0.2  setosa</code></pre>
+<p>dplyr::slice()用于切片</p>
+<pre><code class="r">&gt; dplyr::slice(iris,10:15)
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          4.9         3.1          1.5         0.1  setosa
+2          5.4         3.7          1.5         0.2  setosa
+3          4.8         3.4          1.6         0.2  setosa
+4          4.8         3.0          1.4         0.1  setosa
+5          4.3         3.0          1.1         0.1  setosa
+6          5.8         4.0          1.2         0.2  setosa</code></pre>
+<ul>
+<li><code>dplyr::filter(iris,Sepal.Length&gt;7)</code> 过滤出花萼长度大于7的花</li>
+<li><code>dplyr::slice(iris,10:15)</code> 表示切出10:15的行</li>
+<li><code>dplyr::sample_n(iris,10)</code> 表示随机抽取10行</li>
+<li><code>dplyr::sample_frac(iris,0.1)</code> 按比例抽取10分之一的数据</li>
+<li><code>dplyr::arrange(iris,Sepal.Length)</code> 表示安装花萼长度进行排序</li>
+<li><code>dplyr::arrange(iris,desc(Sepal.Length))</code> 表示反向进行排序</li>
+</ul>
+<h4 id="dplyr中取子集的功能"><a href="#dplyr中取子集的功能" class="headerlink" title="dplyr中取子集的功能"></a>dplyr中取子集的功能</h4><p>介绍中<code>?select</code>中有大量的示例</p>
+<h4 id="dplyr的统计函数"><a href="#dplyr的统计函数" class="headerlink" title="dplyr的统计函数"></a>dplyr的统计函数</h4><p>可以使用summarise进行统计</p>
+<ul>
+<li><code>summarise(iris,avg=mean(Sepal.Length))</code> 可以计算花萼的平均长度</li>
+<li><code>summarise(iris,sum=sum(Sepal.Length))</code> 可以计算花萼的总长度</li>
+</ul>
+<h3 id="链式操作符-gt"><a href="#链式操作符-gt" class="headerlink" title="链式操作符%&gt;%"></a>链式操作符%&gt;%</h3><p>将一个函数的输出传递给下一个函数,用作下一个函数的输入,类似于linux中的管道,Rstudio中可以使用ctrl+shift+M调用</p>
+<pre><code class="r">iris 通过管道进行分组,再通过管道计算平均值,再通过管道进行排序
+&gt; iris %&gt;% group_by(Species) %&gt;% summarise(avg=mean(Sepal.Width)) %&gt;% arrange(avg)
+`summarise()` ungrouping output (override with `.groups` argument)
+# A tibble: 3 x 2
+  Species      avg
+  &lt;fct&gt;      &lt;dbl&gt;
+1 versicolor  2.77
+2 virginica   2.97
+3 setosa      3.43</code></pre>
+<p>mutate可以添加新的变量</p>
+<h3 id="dplyr中双表格的操控"><a href="#dplyr中双表格的操控" class="headerlink" title="dplyr中双表格的操控"></a>dplyr中双表格的操控</h3><p>整合方式包括左连接,有链接,内连接,全连接,半连接,反链接等.内连接是取交集,全连接是取并集.</p>
+<pre><code class="r">## 建立两个数据框
+&gt; a = data.frame(x1=c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),x2=c(1,2,3))
+&gt; b = data.frame(x1=c(&quot;A&quot;,&quot;B&quot;,&quot;D&quot;),x3=c(T,F,T))
+
+## 左连接,就是以左边的表为基础进行合并
+&gt;  dplyr::left_join(a,b,by=&quot;x1&quot;)
+  x1 x2    x3
+1  A  1  TRUE
+2  B  2 FALSE
+3  C  3    NA
+
+## 右连接,就是以右边的表为基础进行合并
+&gt;  dplyr::right_join(a,b,by=&quot;x1&quot;)
+  x1 x2    x3
+1  A  1  TRUE
+2  B  2 FALSE
+3  D NA  TRUE
+
+## 全连接取并集
+&gt; dplyr::full_join(a,b,by=&quot;x1&quot;)
+  x1 x2    x3
+1  A  1  TRUE
+2  B  2 FALSE
+3  C  3    NA
+4  D NA  TRUE
+
+## 半链接根据右侧表的内容于对左侧表进行过滤,不要交集,对a表进行操作.
+&gt; dplyr::semi_join(a,b,by=&quot;x1&quot;)
+  x1 x2
+1  A  1
+2  B  2
+
+## 反链接也是根据右侧表进行操作,是将左侧表的补集取出来.对a表进行操作.
+&gt; dplyr::anti_join(a,b,by=&quot;x1&quot;)
+  x1 x2
+1  C  3</code></pre>
+<h2 id="41-R函数"><a href="#41-R函数" class="headerlink" title="41-R函数"></a>41-R函数</h2><p>类似于linux中是命令</p>
+<!--<img src="https://s1.ax1x.com/2020/06/09/t5F6gO.png" alt="t5F6gO.png" border="0" />-->
+<p><img src="https://s1.ax1x.com/2020/06/09/t5F6gO.png" alt="t5F6gO.png"></p>
+<p>lm 是一个回归分析<br>老师强调的是多用.</p>
+<h2 id="42-选项参数"><a href="#42-选项参数" class="headerlink" title="42-选项参数"></a>42-选项参数</h2><p>程序,选项,参数</p>
+<p>选项参数:</p>
+<ol>
+<li>输入控制部分</li>
+<li>输出控制部分</li>
+<li>调节部分</li>
+</ol>
+<p>在linux中数据几个参数就被称作几元函数,R中也是一样的<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x411X7C6?p=42">视频</a><br>还是要不停的操作</p>
+<h2 id="43-数学统计函数"><a href="#43-数学统计函数" class="headerlink" title="43-数学统计函数"></a>43-数学统计函数</h2><p>概率论是统计学的基础,R有许多处理概率的函数.可能涉及到,样本空间,对立与互斥,随机事件与必然事件,概率密度,概率分布等.这个要你有统计学相关的书籍 </p>
+<ul>
+<li>d 概率密度函数</li>
+<li>p 分布函数</li>
+<li>q 分布函数的反函数</li>
+<li>r 产生相同分布的随机函数</li>
+</ul>
+<h4 id="正太分布相关的函数"><a href="#正太分布相关的函数" class="headerlink" title="正太分布相关的函数"></a>正太分布相关的函数</h4><pre><code class="r">## 分别为正太概率密度函数,正太分布函数,正太分位数函数,正太分布的随机数函数
+
+?Normal
+dnorm(x, mean = 0, sd = 1, log = FALSE)
+pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+rnorm(n, mean = 0, sd = 1)</code></pre>
+<p>比如随机生成100个随机的正太分布的数字</p>
+<pre><code class="r">&gt; rnorm(n = 100,mean = 15,sd = 2)
+  [1] 18.82627 14.48052 15.64733 17.10765 16.69834
+  [6] 17.18229 15.82709 14.38638 17.03382 15.75992
+ [11] 15.62620 15.91558 16.44487 12.72194 15.26981
+ [16] 15.41339 17.40237 16.06431 14.18183 13.73592
+ [21] 14.57075 14.18284 15.91646 15.79732 12.86899
+ [26] 10.33624 11.68006 17.04716 11.75353 14.56665
+ [31] 19.45208 10.68233 13.43531 13.47316 14.27902
+ [36] 19.29866 12.14214 15.09897 12.73730 14.76324
+ [41] 13.53597 19.82190 18.34059 14.48723 16.30598
+ [46] 12.61513 15.49195 14.33117 15.56077 15.10224
+ [51] 18.87988 10.82265 17.50272 16.03550 13.69167
+ [56] 15.53061 14.92809 13.31095 16.12193 13.37350
+ [61] 14.97857 17.93824 15.81937 15.14789 15.02264
+ [66] 15.35681 15.06818 16.20024 15.49239 13.87530
+ [71] 15.07941 11.02497 15.94322 15.67173 12.82916
+ [76] 14.49088 15.23593 14.89429 15.39066 17.03379
+ [81] 15.07567 13.72972 15.06769 16.03017 18.25667
+ [86] 11.01588 12.57675 17.13522 16.01980 10.52023
+ [91] 19.66291 13.17814 17.31925 14.03456 16.18037
+ [96] 15.59317 12.31323 16.43977 16.09725 14.29555
+
+ &gt; round(rnorm(n = 100,mean = 15,sd = 2))  ## 可用于取整数,每次运行都是不同正太分布的数字</code></pre>
+<h4 id="与离散分布相关的函数"><a href="#与离散分布相关的函数" class="headerlink" title="与离散分布相关的函数"></a>与离散分布相关的函数</h4><!--<img src="https://s1.ax1x.com/2020/06/09/t5u0VU.png" alt="t5u0VU.png" border="0" />-->
+<p><img src="https://s1.ax1x.com/2020/06/09/t5u0VU.png" alt="t5u0VU.png"></p>
+<p>比如几种分布</p>
+<pre><code class="r">## 集合分布
+&gt; ?Geometric
+## 超几何分布
+&gt; ?Hypergeometric</code></pre>
+<p>这些函数的作用,,,</p>
+<ul>
+<li>可以生成这种函数的随机数,并绘制出对应的分布曲线来查看,比如<pre><code class="r">&gt; x = rnorm(n=100,mean = 15,sd = 2)
+&gt; qqnorm(x)</code></pre>
+</li>
+</ul>
+<h4 id="随机数的生成"><a href="#随机数的生成" class="headerlink" title="随机数的生成"></a>随机数的生成</h4><pre><code class="r">&gt; runif(10)*10
+## 生成50个最小为1最大为100的随机数
+&gt; runif(50,min=1,max=100)</code></pre>
+<p>随机种子,要求复现,这时就要用到set.seed()如:</p>
+<pre><code class="r">## 每次这样运行都可以得到同样的随机数
+&gt; set.seed(666)
+&gt; runif(10)
+ [1] 0.77436849 0.19722419 0.97801384 0.20132735
+ [5] 0.36124443 0.74261194 0.97872844 0.49811371
+ [9] 0.01331584 0.25994613</code></pre>
+<h2 id="44-描述性统计函数"><a href="#44-描述性统计函数" class="headerlink" title="44-描述性统计函数"></a>44-描述性统计函数</h2><h3 id="summary函数"><a href="#summary函数" class="headerlink" title="summary函数"></a>summary函数</h3><p>回归分析中大量的用到这个函数</p>
+<pre><code class="r">## 提供了最小,四分位数,中位数,平均值,,最小值,,
+&gt; myvare = mtcars[c(&quot;mpg&quot;,&quot;hp&quot;,&quot;wt&quot;,&quot;am&quot;)]
+&gt; summary(myvare)
+      mpg              hp              wt              am        
+ Min.   :10.40   Min.   : 52.0   Min.   :1.513   Min.   :0.0000  
+ 1st Qu.:15.43   1st Qu.: 96.5   1st Qu.:2.581   1st Qu.:0.0000  
+ Median :19.20   Median :123.0   Median :3.325   Median :0.0000  
+ Mean   :20.09   Mean   :146.7   Mean   :3.217   Mean   :0.4062  
+ 3rd Qu.:22.80   3rd Qu.:180.0   3rd Qu.:3.610   3rd Qu.:1.0000  
+ Max.   :33.90   Max.   :335.0   Max.   :5.424   Max.   :1.0000</code></pre>
+<h3 id="fivenum"><a href="#fivenum" class="headerlink" title="fivenum()"></a>fivenum()</h3><p>与summary类似可以返回五个数,最小值,四分位数,中位数</p>
+<pre><code class="r">&gt; fivenum(myvare$hp)
+[1]  52  96 123 180 335</code></pre>
+<h3 id="pastecs包"><a href="#pastecs包" class="headerlink" title="pastecs包"></a>pastecs包</h3><p>这个可以计算种类繁多的统计量</p>
+<pre><code class="r">## 默认的 basic=T 计算基础统计值
+&gt; stat.desc(myvare)
+                     mpg           hp          wt          am
+nbr.val       32.0000000   32.0000000  32.0000000 32.00000000
+nbr.null       0.0000000    0.0000000   0.0000000 19.00000000
+nbr.na         0.0000000    0.0000000   0.0000000  0.00000000
+min           10.4000000   52.0000000   1.5130000  0.00000000
+max           33.9000000  335.0000000   5.4240000  1.00000000
+range         23.5000000  283.0000000   3.9110000  1.00000000
+sum          642.9000000 4694.0000000 102.9520000 13.00000000
+median        19.2000000  123.0000000   3.3250000  0.00000000
+mean          20.0906250  146.6875000   3.2172500  0.40625000
+SE.mean        1.0654240   12.1203173   0.1729685  0.08820997
+CI.mean.0.95   2.1729465   24.7195501   0.3527715  0.17990541
+var           36.3241028 4700.8669355   0.9573790  0.24899194
+std.dev        6.0269481   68.5628685   0.9784574  0.49899092
+coef.var       0.2999881    0.4674077   0.3041285  1.22828533
+
+## 计算描述性统计
+&gt; stat.desc(myvare,basic = T)
+                     mpg           hp          wt          am
+nbr.val       32.0000000   32.0000000  32.0000000 32.00000000
+nbr.null       0.0000000    0.0000000   0.0000000 19.00000000
+nbr.na         0.0000000    0.0000000   0.0000000  0.00000000
+min           10.4000000   52.0000000   1.5130000  0.00000000
+max           33.9000000  335.0000000   5.4240000  1.00000000
+range         23.5000000  283.0000000   3.9110000  1.00000000
+sum          642.9000000 4694.0000000 102.9520000 13.00000000
+median        19.2000000  123.0000000   3.3250000  0.00000000
+mean          20.0906250  146.6875000   3.2172500  0.40625000
+SE.mean        1.0654240   12.1203173   0.1729685  0.08820997
+CI.mean.0.95   2.1729465   24.7195501   0.3527715  0.17990541
+var           36.3241028 4700.8669355   0.9573790  0.24899194
+std.dev        6.0269481   68.5628685   0.9784574  0.49899092
+coef.var       0.2999881    0.4674077   0.3041285  1.22828533
+
+## norm 就会计算一些统计值,如正太分布统计量,偏度,峰度等
+&gt; stat.desc(myvare,norm = T)
+                     mpg            hp           wt            am
+nbr.val       32.0000000   32.00000000  32.00000000  3.200000e+01
+nbr.null       0.0000000    0.00000000   0.00000000  1.900000e+01
+nbr.na         0.0000000    0.00000000   0.00000000  0.000000e+00
+min           10.4000000   52.00000000   1.51300000  0.000000e+00
+max           33.9000000  335.00000000   5.42400000  1.000000e+00
+range         23.5000000  283.00000000   3.91100000  1.000000e+00
+sum          642.9000000 4694.00000000 102.95200000  1.300000e+01
+median        19.2000000  123.00000000   3.32500000  0.000000e+00
+mean          20.0906250  146.68750000   3.21725000  4.062500e-01
+SE.mean        1.0654240   12.12031731   0.17296847  8.820997e-02
+CI.mean.0.95   2.1729465   24.71955013   0.35277153  1.799054e-01
+var           36.3241028 4700.86693548   0.95737897  2.489919e-01
+std.dev        6.0269481   68.56286849   0.97845744  4.989909e-01
+coef.var       0.2999881    0.46740771   0.30412851  1.228285e+00
+skewness       0.6106550    0.72602366   0.42314646  3.640159e-01
+skew.2SE       0.7366922    0.87587259   0.51048252  4.391476e-01
+kurtosis      -0.3727660   -0.13555112  -0.02271075 -1.924741e+00
+kurt.2SE      -0.2302812   -0.08373853  -0.01402987 -1.189035e+00
+normtest.W     0.9475647    0.93341934   0.94325772  6.250744e-01
+normtest.p     0.1228814    0.04880824   0.09265499  7.836354e-08</code></pre>
+<h3 id="doBy包"><a href="#doBy包" class="headerlink" title="doBy包"></a>doBy包</h3><p>可以一次返回多个计算统计量</p>
+<pre><code class="r">## 右边的变量是分组型的分组变量,data接一个数据框,fun接一个函数,可以是自定义函数
+&gt; summaryBy(mpg+hp+wt ~ am,data = myvare,FUN = mean)
+  am mpg.mean  hp.mean  wt.mean
+1  0 17.14737 160.2632 3.768895
+2  1 24.39231 126.8462 2.411000</code></pre>
+<h2 id="45-频数统计函数"><a href="#45-频数统计函数" class="headerlink" title="45-频数统计函数"></a>45-频数统计函数</h2><p>如果一个数据是因子,因子是直接可以进行分组的</p>
+<pre><code class="r">&gt; mt_cyl = as.factor(mtcars$cyl)
+&gt; mt_cyl
+ [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8 8 8
+[26] 4 4 4 8 6 8 4
+Levels: 4 6 8
+&gt; split(mtcars,mt_cyl)
+## 这样就可以根据气缸的个数对汽车进行分组</code></pre>
+<p>如果不是一个明显的因子,可以用cut进行分割</p>
+<pre><code class="r">## 10到50,以10为步长进行分组
+&gt;  cut(mtcars$mpg,c(seq(10,50,10)))
+ [1] (20,30] (20,30] (20,30] (20,30] (10,20] (10,20]
+ [7] (10,20] (20,30] (20,30] (10,20] (10,20] (10,20]
+[13] (10,20] (10,20] (10,20] (10,20] (10,20] (30,40]
+[19] (30,40] (30,40] (20,30] (10,20] (10,20] (10,20]
+[25] (10,20] (20,30] (20,30] (30,40] (10,20] (10,20]
+[31] (10,20] (20,30]
+Levels: (10,20] (20,30] (30,40] (40,50]
+
+## 然后直接使用table进行统计
+&gt; table(cut(mtcars$mpg,c(seq(10,50,10))))
+(10,20] (20,30] (30,40] (40,50] 
+     18      10       4       0 </code></pre>
+<h4 id="prop-table计算频率函数"><a href="#prop-table计算频率函数" class="headerlink" title="prop.table计算频率函数"></a>prop.table计算频率函数</h4><pre><code class="r">&gt; prop.table(table(mtcars$cyl))
+
+      4       6       8 
+0.34375 0.21875 0.43750 </code></pre>
+<h4 id="vcd"><a href="#vcd" class="headerlink" title="vcd"></a>vcd</h4><p>如果是二维的数据框呢</p>
+<ul>
+<li><p>如果是用table的话</p>
+<pre><code class="r">## 安慰剂和治疗组的区分,这个在实验的时候很常用
+&gt; table(Arthritis$Treatment,Arthritis$Improved)
+
+        None Some Marked
+Placebo   29    7      7
+Treated   13    7     21</code></pre>
+</li>
+</ul>
+<h4 id="xtabs"><a href="#xtabs" class="headerlink" title="xtabs"></a>xtabs</h4><p>这个函数是可以自定义公式</p>
+<pre><code class="r">&gt; xtabs(~ Treatment + Improved,data = Arthritis)
+         Improved
+Treatment None Some Marked
+  Placebo   29    7      7
+  Treated   13    7     21</code></pre>
+<p>二维列联表可以用margin.table</p>
+<pre><code class="r">## 这里的1代表的是行
+&gt; x = xtabs(~ Treatment + Improved,data = Arthritis)
+&gt; margin.table(x)
+[1] 84
+&gt; margin.table(x,1)
+Treatment
+Placebo Treated 
+     43      41
+
+## 频率占比统计
+&gt; prop.table(x,1)
+         Improved
+Treatment      None      Some    Marked
+  Placebo 0.6744186 0.1627907 0.1627907
+  Treated 0.3170732 0.1707317 0.5121951</code></pre>
+<p>addmargins()可以直接将算出的和添加到表中,也可以设置1和2,只添加行或列.</p>
+<pre><code class="r">&gt; addmargins(x)
+         Improved
+Treatment None Some Marked Sum
+  Placebo   29    7      7  43
+  Treated   13    7     21  41
+  Sum       42   14     28  84</code></pre>
+<h3 id="三维列联表的计算"><a href="#三维列联表的计算" class="headerlink" title="三维列联表的计算"></a>三维列联表的计算</h3><pre><code class="r">&gt; x = xtabs(~ Treatment + Improved + Sex,data = Arthritis)
+&gt; x
+, , Sex = Female
+
+         Improved
+Treatment None Some Marked
+  Placebo   19    7      6
+  Treated    6    5     16
+
+, , Sex = Male
+
+         Improved
+Treatment None Some Marked
+  Placebo   10    0      1
+  Treated    7    2      5
+
+## 这样的表可能不是很好看,ftable()可以将表转换成评估式的列联表
+&gt; ftable(x)
+                   Sex Female Male
+Treatment Improved                
+Placebo   None             19   10
+          Some              7    0
+          Marked            6    1
+Treated   None              6    7
+          Some              5    2
+          Marked           16    5</code></pre>
+<h2 id="46-R中的独立性检验函数"><a href="#46-R中的独立性检验函数" class="headerlink" title="46-R中的独立性检验函数"></a>46-R中的独立性检验函数</h2><p>独立检验是根据频数信息判断两类因子彼此相关或相互独立的假设检.所谓独立就是看看变量之间是否是独立的.</p>
+<p>主要有三个检验方法</p>
+<ol>
+<li>卡方检验</li>
+<li>Fisher检验</li>
+<li>Cochran-Mantel-Haenszel检验</li>
+</ol>
+<h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><p>假设检验是梳理统计学中根据一定假设条件由样本推断总体的一种方法.</p>
+<p>原假设–没有发生;</p>
+<p>备择假设–发生了;</p>
+<p>具体作法是:根据问题的需要对所研究的总体作某种假设,记作HO ;选取合适的统计量,这个统计量的选取要使得在假设H0成立时,其分布为已知;由实测的样本,计算出统计量的值,并根据预先给定的显著性水平进行检验,作出拒绝或接受假设HO的判断。</p>
+<h3 id="p-value-probability的值"><a href="#p-value-probability的值" class="headerlink" title="p-value probability的值"></a>p-value probability的值</h3><p>是一个通过计算得到的概率值,也就是原假设为真时,得到最大的或者超出所得到的检验统计量的概率.</p>
+<p>一般将p值定位到0.05,当p &lt; 0.05拒绝原假设,p &gt; 0.05,不拒绝原假设.</p>
+<p>简单的理解就是p值越小原假设越不靠谱,拒绝它,p值越大,说明原假设越靠谱,不拒绝它</p>
+<p>p值越小相关性越大</p>
+<p>以上次药物的有效性为例,进行卡方检验</p>
+<pre><code class="r">&gt; mytable = table(Arthritis$Treatment,Arthritis$Improved)
+&gt; chisq.test(mytable)
+
+    Pearson&#39;s Chi-squared test
+
+data:  mytable
+X-squared = 13.055, df = 2, p-value = 0.001463
+## p值为0.001463说明两个变量之间是有关系的,说明药物是有效果的
+
+&gt; mytable2 = table(Arthritis$Sex,Arthritis$Improved)
+&gt; chisq.test(mytable2)
+
+    Pearson&#39;s Chi-squared test
+
+data:  mytable2
+X-squared = 4.8407, df = 2, p-value = 0.08889
+## 这里检测的是性别与改善之间的关系</code></pre>
+<h3 id="fisher-精确检验"><a href="#fisher-精确检验" class="headerlink" title="fisher 精确检验"></a>fisher 精确检验</h3><p>也是独立性检验,原理是行和列是独立</p>
+<pre><code class="r">&gt; fisher.test(mytable)
+
+    Fisher&#39;s Exact Test for Count Data
+
+data:  mytable
+p-value = 0.001393
+alternative hypothesis: two.sided
+## 与卡方检验是一致的,计算的也是P值</code></pre>
+<h3 id="mantelhaen-test-检测"><a href="#mantelhaen-test-检测" class="headerlink" title="mantelhaen.test 检测"></a>mantelhaen.test 检测</h3><p>两个名义变量在第三个变量每一层中都是条件独立的,需要三个变量</p>
+<pre><code class="r">&gt; mytable3 = xtabs(~Treatment + Improved + Sex,data = Arthritis)
+&gt; mytable3
+, , Sex = Female
+
+         Improved
+Treatment None Some Marked
+  Placebo   19    7      6
+  Treated    6    5     16
+
+, , Sex = Male
+
+         Improved
+Treatment None Some Marked
+  Placebo   10    0      1
+  Treated    7    2      5
+
+&gt; mantelhaen.test(mytable3)
+
+    Cochran-Mantel-Haenszel test
+
+data:  mytable3
+Cochran-Mantel-Haenszel M^2 = 14.632, df = 2, p-value = 0.0006647
+
+## 这里的p值很小,因为列联表的结果是以性别来区分的,这里表示药物的治疗在性别的每一个水平上不独立.</code></pre>
+<p>这里的独立性检验的顺序是很总要的</p>
+<pre><code class="r">## 这里变量的顺序是很重要的
+&gt; mytable3 = xtabs(~Treatment + Sex + Improved ,data = Arthritis)
+&gt; mantelhaen.test(mytable3)
+
+    Mantel-Haenszel chi-squared test with continuity correction
+
+data:  mytable3
+Mantel-Haenszel X-squared = 2.0863, df = 1, p-value = 0.1486
+alternative hypothesis: true common odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.8566711 8.0070521
+sample estimates:
+common odds ratio 
+         2.619048 </code></pre>
+<p>也由很多的包可以进行独立性检验</p>
+<h2 id="47-相关性分析函数"><a href="#47-相关性分析函数" class="headerlink" title="47-相关性分析函数"></a>47-相关性分析函数</h2><p>相关性分析是指对两个或多个具备相关性的变量元素进行分析,从而衡量两个变量因素的相关密切程度。相关性的元素之间需要存在一定的联系或者概率才可以进行相关性分析。</p>
+<p>简单来说就是变量之间是否有关系。</p>
+<p>两个变量如果不独立就可以进行相关性检验,可能是正相关用”+”表示,也可能是负相关”-“,</p>
+<p>相关性衡量指标,指标表示是都是同一个东西,只是表示的方法指标不同而已</p>
+<ul>
+<li>Pearson相关系数</li>
+<li>Spearman相关系数</li>
+<li>Kendall相关系数</li>
+<li>偏相关系数</li>
+<li>多分格相关系数</li>
+<li>多系列相关系数</li>
+</ul>
+<p>计算相关性系数都是使用同一个函数cor(),可以计算三种相关系数,pearson,kendall,spearman,默认是pearson</p>
+<h4 id="cor函数"><a href="#cor函数" class="headerlink" title="cor函数"></a>cor函数</h4><pre><code class="r">## 这里计算一下谋杀率和什么有关
+&gt; ?cor
+&gt; state.x77
+&gt; cor(state.x77)
+            Population     Income  Illiteracy    Life Exp     Murder     HS Grad      Frost        Area
+Population  1.00000000  0.2082276  0.10762237 -0.06805195  0.3436428 -0.09848975 -0.3321525  0.02254384
+Income      0.20822756  1.0000000 -0.43707519  0.34025534 -0.2300776  0.61993232  0.2262822  0.36331544
+Illiteracy  0.10762237 -0.4370752  1.00000000 -0.58847793  0.7029752 -0.65718861 -0.6719470  0.07726113
+Life Exp   -0.06805195  0.3402553 -0.58847793  1.00000000 -0.7808458  0.58221620  0.2620680 -0.10733194
+Murder      0.34364275 -0.2300776  0.70297520 -0.78084575  1.0000000 -0.48797102 -0.5388834  0.22839021
+HS Grad    -0.09848975  0.6199323 -0.65718861  0.58221620 -0.4879710  1.00000000  0.3667797  0.33354187
+Frost      -0.33215245  0.2262822 -0.67194697  0.26206801 -0.5388834  0.36677970  1.0000000  0.05922910
+Area        0.02254384  0.3633154  0.07726113 -0.10733194  0.2283902  0.33354187  0.0592291  1.00000000</code></pre>
+<p>这是一个对角矩阵对角线是自己与自己的相关性,都是1,最大相关系数.正的就是正相关,负的就是不相关,或反着来.</p>
+<h4 id="cov函数"><a href="#cov函数" class="headerlink" title="cov函数"></a>cov函数</h4><p>可以用来计算协方差,基本与cor是一致的</p>
+<pre><code class="r">&gt; cov(state.x77)
+              Population        Income   Illiteracy      Life Exp       Murder       HS Grad        Frost          Area
+Population 19931683.7588   571229.7796  292.8679592 -4.078425e+02  5663.523714  -3551.509551 -77081.97265  8.587917e+06
+Income       571229.7796   377573.3061 -163.7020408  2.806632e+02  -521.894286   3076.768980   7227.60408  1.904901e+07
+Illiteracy      292.8680     -163.7020    0.3715306 -4.815122e-01     1.581776     -3.235469    -21.29000  4.018337e+03
+Life Exp       -407.8425      280.6632   -0.4815122  1.802020e+00    -3.869480      6.312685     18.28678 -1.229410e+04
+Murder         5663.5237     -521.8943    1.5817755 -3.869480e+00    13.627465    -14.549616   -103.40600  7.194043e+04
+HS Grad       -3551.5096     3076.7690   -3.2354694  6.312685e+00   -14.549616     65.237894    153.99216  2.298732e+05
+Frost        -77081.9727     7227.6041  -21.2900000  1.828678e+01  -103.406000    153.992163   2702.00857  2.627039e+05
+Area        8587916.9494 19049013.7510 4018.3371429 -1.229410e+04 71940.429959 229873.192816 262703.89306  7.280748e+09</code></pre>
+<p>如果要精准的显示谋杀率和哪些指数有关</p>
+<pre><code class="r">&gt; colnames(state.x77)
+[1] &quot;Population&quot; &quot;Income&quot;     &quot;Illiteracy&quot; &quot;Life Exp&quot;  
+[5] &quot;Murder&quot;     &quot;HS Grad&quot;    &quot;Frost&quot;      &quot;Area&quot;      
+&gt; x = state.x77[,c(1,2,3,6)]
+&gt; y = state.x77[,c(4,5)]
+&gt; cor(x,y)
+              Life Exp     Murder
+Population -0.06805195  0.3436428
+Income      0.34025534 -0.2300776
+Illiteracy -0.58847793  0.7029752
+HS Grad     0.58221620 -0.4879710</code></pre>
+<p>cor函数只能计算三种算法,例如偏相关系数,多分隔系数,多系列系数,等.</p>
+<h4 id="偏相关系数"><a href="#偏相关系数" class="headerlink" title="偏相关系数"></a>偏相关系数</h4><pre><code class="r">## 第一个参数是(前两个是要计算数值的下标,其余的是条件变量的下标),第二个参数是cov计算出来的协方差结果.
+&gt; ?pcor
+&gt; colnames(state.x77)
+[1] &quot;Population&quot; &quot;Income&quot;     &quot;Illiteracy&quot; &quot;Life Exp&quot;  
+[5] &quot;Murder&quot;     &quot;HS Grad&quot;    &quot;Frost&quot;      &quot;Area&quot; 
+&gt; pcor(c(1,5,2,3,6),cov(state.x77))
+[1] 0.3462724
+## 计算出偏相关系数</code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">theing</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://theing.gitee.io/2020/06/26/r-shu-ju-fen-xi/r-yu-yan-ru-men-yu-shu-ju-fen-xi-bi-ji-er/">https://theing.gitee.io/2020/06/26/r-shu-ju-fen-xi/r-yu-yan-ru-men-yu-shu-ju-fen-xi-bi-ji-er/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">theing</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">数据分析</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'c9A3NJapA0GqVqdjIanTXvWV-gzGzoHsz',
+        appKey: 'siVPq9lDAGz8yClxLOmoMo6I',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '随便说点什么吧!'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/06/26/r-shu-ju-fen-xi/r-yu-yan-ru-men-yu-shu-ju-fen-xi-bi-ji-san/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="R语言与数据分析（三）">
+                        
+                        <span class="card-title">R语言与数据分析（三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+喜欢一件事就去争取吧。
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                    数据分析
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/R%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                    R语言数据分析
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/26/r-shu-ju-fen-xi/r-yu-yan-ru-men-yu-shu-ju-fen-xi-bi-ji-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="R语言与数据分析（一）">
+                        
+                        <span class="card-title">R语言与数据分析（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+喜欢一件事就去争取吧。
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                    数据分析
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/R%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="post-category">
+                                    R语言数据分析
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2020</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">theing</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">41.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
